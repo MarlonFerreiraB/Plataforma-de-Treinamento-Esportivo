@@ -5,6 +5,7 @@ import exception.DataNascimentoException;
 
 import javax.sound.sampled.Port;
 import java.time.LocalDate;
+import java.time.Period;
 
 public abstract class Pessoa {
     protected String name;
@@ -35,5 +36,13 @@ public abstract class Pessoa {
 
     public PerfilUsuario getPerfil() {
         return perfil;
+    }
+
+    public int calcularIdade(){
+        return  Period.between(dataNascimento, LocalDate.now() ).getYears();
+    }
+
+    public void exibirResumo(){
+        System.out.println("Reseumo do " + perfil +": ");
     }
 }
