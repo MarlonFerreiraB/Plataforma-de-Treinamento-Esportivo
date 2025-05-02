@@ -24,6 +24,18 @@ public class Atleta extends Pessoa {
         }
     }
 
+    public List<Treino> getTreinoList() {
+        return treinoList;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
     public void resgistrarTreino(Treino treino){
         for(Treino t: treinoList){
             if(treino.getData() == t.getData() && treino.getTipoTreino() == t.getTipoTreino()){
@@ -57,11 +69,11 @@ public class Atleta extends Pessoa {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Atleta{");
-        sb.append("name='").append(name).append('\'');
-        sb.append(", dataNascimento=").append(dataNascimento);
+        sb.append(", name='").append(name).append('\'');
         sb.append(", perfil=").append(perfil);
-        sb.append(", altura=").append(altura);
         sb.append(", peso=").append(peso);
+        sb.append(", altura=").append(altura);
+        sb.append("treinoList=").append(treinoList);
         sb.append('}');
         return sb.toString();
     }
