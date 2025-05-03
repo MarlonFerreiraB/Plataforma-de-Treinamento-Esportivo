@@ -3,6 +3,7 @@ package entities;
 import enums.Intensidade;
 import enums.Status;
 import enums.TipoTreino;
+import exception.DataTreinoisBeforeException;
 
 import java.time.LocalDate;
 
@@ -16,6 +17,9 @@ public class Treino {
 
     public Treino(LocalDate data, TipoTreino tipoTreino, Intensidade intensidade, Status status, String descricao, int duracaoMinutos){
         this.data = data;
+        if(data.isBefore(LocalDate.now())){
+            throw new DataTreinoisBeforeException("A data so pode ser no dia de hoje a diante");
+        }
         this.tipoTreino = tipoTreino;
         this.intensidade = intensidade;
         this.status = status;

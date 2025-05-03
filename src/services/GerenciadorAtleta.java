@@ -1,11 +1,11 @@
 package services;
 
 import entities.Atleta;
+import entities.Treino;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class GerenciadorAtleta {
     List<Atleta> atletaList = new ArrayList<>();
@@ -22,14 +22,31 @@ public class GerenciadorAtleta {
         return true;
     }
 
-    public Atleta procurarAtleta(String name, LocalDate date){
+    public Atleta procurarAtleta(String email){
         for(Atleta a: atletaList){
-            if(a.getName().equalsIgnoreCase(name) && a.getDataNascimento() == date){
+            if(a.getEmail().equalsIgnoreCase(email)){
                 System.out.println("Atleta encontrado");
                 return a;
             }
         }
         System.out.println("Atleta n encontrado");
         return null;
+    }
+
+    public void registraTreino(String email, Treino treino){
+        for(Atleta a: atletaList){
+            if(a.getEmail().equalsIgnoreCase(email)){
+                a.resgistrarTreino(treino);
+            }
+        }
+        System.out.println("Este email n esta no nosso banco");
+    }
+
+    public void exibirResumo(String email){
+        for(Atleta a: atletaList){
+            if(a.getEmail().equalsIgnoreCase(email)){
+            a.exibirResumo();
+            }
+        }
     }
 }

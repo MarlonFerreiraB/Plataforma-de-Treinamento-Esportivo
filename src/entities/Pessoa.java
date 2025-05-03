@@ -18,8 +18,8 @@ public abstract class Pessoa {
         this.email = email;
         this.dataNascimento = dataNascimento;
         this.perfil = perfil;
-        if(dataNascimento.isAfter(LocalDate.now())){
-            throw new DataNascimentoException("Error: Nascimento esta errado");
+        if(dataNascimento.isAfter(LocalDate.now()) || dataNascimento.getYear() > 2020){
+            throw new DataNascimentoException("Error: Nascimento esta errado"); //Melhorar error
         }
 
     }
