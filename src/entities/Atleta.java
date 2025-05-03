@@ -63,6 +63,9 @@ public class Atleta extends Pessoa {
         System.out.println("Altura: " + altura);
         System.out.println("IMC: " + calcularIMC());
         System.out.println("Treinos: ");
+        for(Treino t: treinoList){
+            System.out.println(t);
+        }
         exibirTreinos();
     }
 
