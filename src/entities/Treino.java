@@ -63,4 +63,17 @@ public class Treino {
     public void concluirTreino(){
         setStatus(Status.REALIZADO);
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Treino{");
+        sb.append("data=").append(data);
+        sb.append(", tipoTreino=").append(tipoTreino);
+        sb.append(", intensidade=").append(intensidade);
+        sb.append(", status=").append(status);
+        sb.append(", descricao='").append(descricao).append('\'');
+        sb.append(", duracaoMinutos=").append(duracaoMinutos);
+        sb.append('}');
+        return sb.toString();
+    }
 }
