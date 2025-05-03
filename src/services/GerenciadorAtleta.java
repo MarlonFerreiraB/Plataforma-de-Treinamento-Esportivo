@@ -33,13 +33,15 @@ public class GerenciadorAtleta {
         return null;
     }
 
-    public void registraTreino(String email, Treino treino){
+    public boolean registraTreino(String email, Treino treino){
         for(Atleta a: atletaList){
             if(a.getEmail().equalsIgnoreCase(email)){
                 a.resgistrarTreino(treino);
+                return true;
             }
         }
         System.out.println("Este email n esta no nosso banco");
+        return false;
     }
 
     public void exibirResumo(String email){
