@@ -46,4 +46,17 @@ public class Treino {
     public int getDuracaoMinutos() {
         return duracaoMinutos;
     }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public boolean cancelarTreino(){
+        setStatus(Status.CANCELADO);
+        return true;
+    }
+
+    public void concluirTreino(){
+        setStatus(Status.REALIZADO);
+    }
 }
